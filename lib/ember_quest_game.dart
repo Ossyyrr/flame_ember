@@ -7,8 +7,9 @@ import 'package:flutter/material.dart';
 import 'actors/water_enemy.dart';
 import 'managers/segment_manager.dart';
 import 'objects/star.dart';
+import 'package:flame/events.dart';
 
-class EmberQuestGame extends FlameGame {
+class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents {
   EmberQuestGame();
 
   late EmberPlayer _ember;
@@ -39,9 +40,8 @@ class EmberQuestGame extends FlameGame {
 
     cameraComponent = CameraComponent(world: world);
     cameraComponent.viewfinder.anchor = Anchor.topLeft;
-    addAll([cameraComponent, world]);
-
     initializeGame();
+    addAll([cameraComponent, world]);
   }
 
   void initializeGame() {
@@ -54,8 +54,9 @@ class EmberQuestGame extends FlameGame {
     for (var i = 0; i <= segmentsToLoad; i++) {
       loadGameSegments(i, (640 * i).toDouble());
     }
+
     _ember = EmberPlayer(
-      position: Vector2(128, canvasSize.y - 70),
+      position: Vector2(128, canvasSize.y - 128),
     );
     world.add(_ember);
   }
