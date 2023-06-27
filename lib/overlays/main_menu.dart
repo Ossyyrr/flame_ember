@@ -9,29 +9,20 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const blackTextColor = Color.fromRGBO(0, 0, 0, 1.0);
-    const whiteTextColor = Color.fromRGBO(255, 255, 255, 1.0);
-
     return Material(
-      color: Colors.transparent,
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
           height: 250,
           width: 300,
-          decoration: const BoxDecoration(
-            color: blackTextColor,
-            borderRadius: BorderRadius.all(
-              Radius.circular(20),
-            ),
-          ),
+          decoration: const BoxDecoration(color: Colors.blue, borderRadius: BorderRadius.all(Radius.circular(20))),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 'Ember Quest',
                 style: TextStyle(
-                  color: whiteTextColor,
+                  color: Colors.white,
                   fontSize: 24,
                 ),
               ),
@@ -44,13 +35,13 @@ class MainMenu extends StatelessWidget {
                     game.overlays.remove('MainMenu');
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: whiteTextColor,
+                    backgroundColor: Colors.white,
                   ),
                   child: const Text(
                     'Play',
                     style: TextStyle(
                       fontSize: 40.0,
-                      color: blackTextColor,
+                      color: Colors.black,
                     ),
                   ),
                 ),
@@ -62,7 +53,7 @@ Space bar to jump.
 Collect as many stars as you can and avoid enemies!''',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: whiteTextColor,
+                  color: Colors.white,
                   fontSize: 14,
                 ),
               ),
