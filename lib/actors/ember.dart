@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame_platforms/actors/water_enemy.dart';
-import 'package:flame_platforms/objects/star.dart';
+import 'package:flame_doc/actors/water_enemy.dart';
+import 'package:flame_doc/objects/star.dart';
 import 'package:flutter/services.dart';
 import 'package:flame/collisions.dart';
 import '../objects/ground_block.dart';

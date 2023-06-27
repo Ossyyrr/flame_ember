@@ -2,10 +2,9 @@ import 'dart:math';
 
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame_platforms/ember_quest_game.dart';
+import 'package:flame_doc/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 
- 
 import '../managers/segment_manager.dart';
 
 class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
@@ -49,15 +48,15 @@ class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
         );
       }
     }
-    
+
     if (gridPosition.x == 9) {
       if (game.lastBlockKey == _blockKey) {
         game.lastBlockXPosition = position.x + size.x - 10;
       }
     }
-if (game.health <= 0) {
-  removeFromParent();
-}
+    if (game.health <= 0) {
+      removeFromParent();
+    }
     super.update(dt);
   }
 }

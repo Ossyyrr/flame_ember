@@ -1,8 +1,8 @@
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
-import 'package:flame_platforms/actors/ember.dart';
-import 'package:flame_platforms/objects/ground_block.dart';
-import 'package:flame_platforms/objects/platform_block.dart';
+import 'package:flame_doc/actors/ember.dart';
+import 'package:flame_doc/objects/ground_block.dart';
+import 'package:flame_doc/objects/platform_block.dart';
 import 'package:flutter/material.dart';
 import 'actors/water_enemy.dart';
 import 'managers/segment_manager.dart';
@@ -110,7 +110,4 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
       }
     }
   }
-
-
-  
 }
