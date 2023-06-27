@@ -17,6 +17,7 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
   double objectSpeed = 0.0; //Velocidad de los objetos del juego
   late double lastBlockXPosition = 0.0;
   late UniqueKey lastBlockKey;
+  ValueNotifier<bool> hasJumped = ValueNotifier<bool>(false);
 
   final world = World();
   late final CameraComponent cameraComponent;
@@ -32,6 +33,7 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
  @override
  bool onTapDown(TapDownInfo info) {
    print("Player tap down on ${info.eventPosition.game}");
+   _ember.jump();
    return true;
  }
 

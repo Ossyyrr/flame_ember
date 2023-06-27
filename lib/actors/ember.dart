@@ -3,6 +3,7 @@ import 'package:flame/effects.dart';
 import 'package:flame/events.dart';
 import 'package:flame_doc/actors/water_enemy.dart';
 import 'package:flame_doc/objects/star.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flame/collisions.dart';
 import '../objects/ground_block.dart';
@@ -47,6 +48,10 @@ class EmberPlayer extends SpriteAnimationComponent
     print("tap cancel");
   }
 
+   void jump() {
+      hasJumped = true;
+    }
+
   @override
   void onLoad() {
     animation = SpriteAnimation.fromFrameData(
@@ -70,6 +75,8 @@ class EmberPlayer extends SpriteAnimationComponent
     } else if (horizontalDirection == 1 && scale.x == -1) {
       flipHorizontally();
     }
+
+   
 
 // Apply basic gravity
     velocity.y += gravity;
