@@ -1,9 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame/events.dart';
 import 'package:flame_doc/actors/water_enemy.dart';
 import 'package:flame_doc/objects/star.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flame/collisions.dart';
 import '../objects/ground_block.dart';
@@ -11,7 +9,7 @@ import '../objects/platform_block.dart';
 import '../ember_quest_game.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
-    with KeyboardHandler, CollisionCallbacks, TapCallbacks, HasGameRef<EmberQuestGame> {
+    with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {
   EmberPlayer({
     required super.position,
   }) : super(size: Vector2.all(64), anchor: Anchor.center);
@@ -28,29 +26,17 @@ class EmberPlayer extends SpriteAnimationComponent
 
   bool hasJumped = false;
 
-  @override
-  void onTapDown(TapDownEvent event) {
-    print("tap down");
+  void jump() {
+    hasJumped = true;
   }
 
-  @override
-  void onLongTapDown(TapDownEvent event) {
-    print("tap Long down");
+  void goLeft() {
+    horizontalDirection = -1;
   }
 
-  @override
-  void onTapUp(TapUpEvent event) {
-    print("tap up");
+  void goRight() {
+    horizontalDirection = 1;
   }
-
-  @override
-  void onTapCancel(TapCancelEvent event) {
-    print("tap cancel");
-  }
-
-   void jump() {
-      hasJumped = true;
-    }
 
   @override
   void onLoad() {
@@ -75,8 +61,6 @@ class EmberPlayer extends SpriteAnimationComponent
     } else if (horizontalDirection == 1 && scale.x == -1) {
       flipHorizontally();
     }
-
-   
 
 // Apply basic gravity
     velocity.y += gravity;

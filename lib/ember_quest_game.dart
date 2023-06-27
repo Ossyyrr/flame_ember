@@ -10,7 +10,8 @@ import 'objects/star.dart';
 import 'package:flame/events.dart';
 import 'overlays/hud.dart';
 
-class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents, TapDetector {
+class EmberQuestGame extends FlameGame
+    with HasCollisionDetection, HasKeyboardHandlerComponents, TapDetector, VerticalDragDetector, LongPressDetector {
   EmberQuestGame();
 
   late EmberPlayer _ember;
@@ -30,18 +31,25 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
     return const Color.fromARGB(255, 173, 223, 247);
   }
 
- @override
- bool onTapDown(TapDownInfo info) {
-   print("Player tap down on ${info.eventPosition.game}");
-   _ember.jump();
-   return true;
- }
+  @override
+  void onLongPressStart(LongPressStartInfo info) {
+    if (info.eventPosition.game[0] < 250) {
+      _ember.goLeft();
+    } else {
+      _ember.goRight();
+    }
+  }
 
- @override
- bool onTapUp(TapUpInfo info) {
-   print("Player tap up on ${info.eventPosition.game}");
-   return true;
- }
+  @override
+  void onLongPressEnd(LongPressEndInfo info) {
+    _ember.horizontalDirection = 0;
+  }
+
+  @override
+  void onVerticalDragStart(DragStartInfo info) {
+    _ember.jump();
+    print("Vertical drag ${info.eventPosition.game}");
+  }
 
   @override
   Future<void> onLoad() async {
