@@ -1,5 +1,6 @@
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame/events.dart';
 import 'package:flame_doc/actors/water_enemy.dart';
 import 'package:flame_doc/objects/star.dart';
 import 'package:flutter/services.dart';
@@ -9,7 +10,7 @@ import '../objects/platform_block.dart';
 import '../ember_quest_game.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
-    with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {
+    with KeyboardHandler, CollisionCallbacks, TapCallbacks, HasGameRef<EmberQuestGame> {
   EmberPlayer({
     required super.position,
   }) : super(size: Vector2.all(64), anchor: Anchor.center);
@@ -25,6 +26,26 @@ class EmberPlayer extends SpriteAnimationComponent
   final double terminalVelocity = 150;
 
   bool hasJumped = false;
+
+  @override
+  void onTapDown(TapDownEvent event) {
+    print("tap down");
+  }
+
+  @override
+  void onLongTapDown(TapDownEvent event) {
+    print("tap Long down");
+  }
+
+  @override
+  void onTapUp(TapUpEvent event) {
+    print("tap up");
+  }
+
+  @override
+  void onTapCancel(TapCancelEvent event) {
+    print("tap cancel");
+  }
 
   @override
   void onLoad() {

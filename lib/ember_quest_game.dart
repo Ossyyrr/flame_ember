@@ -10,7 +10,7 @@ import 'objects/star.dart';
 import 'package:flame/events.dart';
 import 'overlays/hud.dart';
 
-class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents {
+class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents, TapDetector {
   EmberQuestGame();
 
   late EmberPlayer _ember;
@@ -28,6 +28,18 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
   Color backgroundColor() {
     return const Color.fromARGB(255, 173, 223, 247);
   }
+
+ @override
+ bool onTapDown(TapDownInfo info) {
+   print("Player tap down on ${info.eventPosition.game}");
+   return true;
+ }
+
+ @override
+ bool onTapUp(TapUpInfo info) {
+   print("Player tap up on ${info.eventPosition.game}");
+   return true;
+ }
 
   @override
   Future<void> onLoad() async {
