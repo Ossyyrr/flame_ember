@@ -69,8 +69,10 @@ class EmberPlayer extends SpriteAnimationComponent
     game.objectSpeed = 0;
     moveSpeed = 200;
 // Prevent ember from going backwards at screen edge.
-    if (position.x - 36 <= 0 && horizontalDirection < 0) {
+    if (position.x <= 0 && horizontalDirection < 0) {
       velocity.x = 0;
+      // game.objectSpeed = moveSpeed;
+      // moveSpeed = -200;
     }
 // Prevent ember from going beyond half screen.
     if (position.x + 64 >= game.size.x / 2 && horizontalDirection > 0) {
@@ -79,6 +81,15 @@ class EmberPlayer extends SpriteAnimationComponent
       moveSpeed = 0;
     }
 
+// If ember fell in pit, then game over.
+    if (position.y > game.size.y + size.y) {
+      game.health = 0;
+    }
+
+    if (game.health <= 0) {
+      removeFromParent(); // Remove ember from game.
+      game.overlays.add('GameOver');
+    }
     super.update(dt);
   }
 
@@ -93,7 +104,7 @@ class EmberPlayer extends SpriteAnimationComponent
       horizontalDirection = 1;
     }
 
-    hasJumped = keysPressed.contains(LogicalKeyboardKey.space);
+    hasJumped = keysPressed.contains(LogicalKeyboardKey.space) || keysPressed.contains(LogicalKeyboardKey.keyW);
 
     return true;
   }
@@ -122,10 +133,11 @@ class EmberPlayer extends SpriteAnimationComponent
     }
     if (other is Star) {
       other.removeFromParent();
+      game.starsCollected++;
     }
 
     if (other is WaterEnemy) {
-      // hit();
+      hit();
     }
 
     super.onCollision(intersectionPoints, other);
@@ -136,13 +148,14 @@ class EmberPlayer extends SpriteAnimationComponent
   void hit() {
     if (!hitByEnemy) {
       hitByEnemy = true;
+      game.health--;
     }
     add(
       OpacityEffect.fadeOut(
         EffectController(
           alternate: true,
           duration: 0.1,
-          repeatCount: 6,
+          repeatCount: 5,
         ),
       )..onComplete = () {
           hitByEnemy = false;

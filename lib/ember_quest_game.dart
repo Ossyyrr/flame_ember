@@ -8,6 +8,7 @@ import 'actors/water_enemy.dart';
 import 'managers/segment_manager.dart';
 import 'objects/star.dart';
 import 'package:flame/events.dart';
+import 'overlays/hud.dart';
 
 class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHandlerComponents {
   EmberQuestGame();
@@ -19,6 +20,9 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
 
   final world = World();
   late final CameraComponent cameraComponent;
+
+  int starsCollected = 0;
+  int health = 3;
 
   @override
   Color backgroundColor() {
@@ -40,11 +44,11 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
 
     cameraComponent = CameraComponent(world: world);
     cameraComponent.viewfinder.anchor = Anchor.topLeft;
-    initializeGame();
     addAll([cameraComponent, world]);
+    initializeGame(true);
   }
 
-  void initializeGame() {
+  void initializeGame(bool loadHud) {
     // Assume that size.x < 3200
     //Cada segmento será de 640 - 10 bloques de ancho para cada segmento. 64 pixeles por bloque.
 
@@ -58,7 +62,16 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
     _ember = EmberPlayer(
       position: Vector2(128, canvasSize.y - 128),
     );
-    world.add(_ember);
+    add(_ember);
+    if (loadHud) {
+      add(Hud());
+    }
+  }
+
+  void reset() {
+    starsCollected = 0;
+    health = 3;
+    initializeGame(false);
   }
 
   void loadGameSegments(int segmentIndex, double xPositionOffset) {
@@ -97,4 +110,7 @@ class EmberQuestGame extends FlameGame with HasCollisionDetection, HasKeyboardHa
       }
     }
   }
+
+
+  
 }
