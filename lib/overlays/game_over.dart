@@ -1,19 +1,23 @@
+import 'package:flame_doc/core/model/score.dart';
+import 'package:flame_doc/core/repository/score_repository.dart';
 import 'package:flame_doc/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 
 class GameOver extends StatelessWidget {
   // Reference to parent game.
   final EmberQuestGame game;
-  const GameOver({super.key, required this.game});
+  final String playerName;
+  const GameOver({super.key, required this.game, required this.playerName});
 
   @override
   Widget build(BuildContext context) {
+    ScoreRepository.updateUserScore(playerName, game.starsCollected);
+
     return Material(
       color: Colors.transparent,
       child: Center(
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          height: 200,
           width: 300,
           decoration: const BoxDecoration(
             color: Colors.blue,
@@ -22,16 +26,54 @@ class GameOver extends StatelessWidget {
             ),
           ),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const Text(
                 'Game Over',
                 style: TextStyle(
                   color: Colors.white,
+                  fontWeight: FontWeight.bold,
                   fontSize: 24,
                 ),
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 20),
+              const Text(
+                'Scores:',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 22,
+                ),
+              ),
+              const SizedBox(height: 16),
+              StreamBuilder(
+                  stream: ScoreRepository.scoresStream,
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return const Center(
+                          child:
+                              CircularProgressIndicator(color: Colors.white));
+                    }
+                    final scores = snapshot.data as List<Score>;
+
+                    return SizedBox(
+                      height: 200,
+                      child: ListView(
+                        children: [
+                          for (final score in scores)
+                            Text(
+                              '${score.name}: ${score.score}',
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                              ),
+                            ),
+                        ],
+                      ),
+                    );
+                  }),
+              const SizedBox(height: 20),
               SizedBox(
                 width: 200,
                 height: 75,

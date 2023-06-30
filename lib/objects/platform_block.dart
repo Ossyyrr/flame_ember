@@ -21,7 +21,6 @@ class PlatformBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
       (gridPosition.x * size.x) + xOffset,
       game.size.y - (gridPosition.y * size.y),
     );
-
     add(RectangleHitbox(collisionType: CollisionType.passive));
   }
 
@@ -31,8 +30,8 @@ class PlatformBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
     position += velocity * dt;
     if (position.x < -size.x) removeFromParent();
     if (position.x < -size.x || game.health <= 0) {
-      removeFromParent();
-    }
+  removeFromParent();
+}
     super.update(dt);
   }
 }

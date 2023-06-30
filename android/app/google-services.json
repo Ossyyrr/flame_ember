@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659018838865",
+    "project_id": "flame-ember",
+    "storage_bucket": "flame-ember.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659018838865:android:c1c5c42db14b948f3c5970",
+        "android_client_info": {
+          "package_name": "com.example.flame_doc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659018838865-d6ehfpluern2kocs7ebudii3r99bvvud.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDI-fJ5dGqcgMiKnnCxo0DqIN1UNKesAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659018838865-d6ehfpluern2kocs7ebudii3r99bvvud.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
