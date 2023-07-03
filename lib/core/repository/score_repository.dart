@@ -13,7 +13,7 @@ class ScoreRepository {
   }
 
   static updateUserScore(String name, int score) async {
-    await Firestore.addScore(name, score);
+    if (score > 0) await Firestore.addScore(name, score);
     final scores = await Firestore.getScores();
     updateScores(scores);
   }
