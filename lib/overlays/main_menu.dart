@@ -83,7 +83,6 @@ class MainMenu extends StatelessWidget {
                         labelText: 'Player Name',
                         labelStyle: const TextStyle(color: Colors.white),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(0.2),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: const BorderSide(color: Colors.white),

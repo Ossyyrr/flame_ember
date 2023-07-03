@@ -28,7 +28,7 @@ class GameOver extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               width: 300,
               decoration: const BoxDecoration(
-                color: Colors.blue,
+                color: Colors.black54,
                 borderRadius: BorderRadius.all(
                   Radius.circular(20),
                 ),
@@ -37,6 +37,7 @@ class GameOver extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 16),
                   const Text(
                     'Game Over',
                     style: TextStyle(
@@ -102,6 +103,7 @@ class GameOver extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
                 ],
               ),
             ),
