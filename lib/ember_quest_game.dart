@@ -72,6 +72,8 @@ class EmberQuestGame extends FlameGame
       'heart.png',
       'star.png',
       'water_enemy.png',
+      'bg_w.png',
+      'bg_f.png',
     ]);
 
     cameraComponent = CameraComponent(world: world);
