@@ -29,7 +29,7 @@ class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {
     );
     add(
       SizeEffect.by(
-        Vector2(-18, -18),
+        Vector2(-24, -24),
         EffectController(
           duration: 0.75,
           reverseDuration: 0.7,
