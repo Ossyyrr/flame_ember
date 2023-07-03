@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flame_doc/core/model/score.dart';
+import 'package:ember_flame/core/model/score.dart';
 
 class Firestore {
   Firestore() {

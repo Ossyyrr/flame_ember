@@ -1,10 +1,10 @@
+import 'package:ember_flame/actors/ember.dart';
+import 'package:ember_flame/objects/ground_block.dart';
+import 'package:ember_flame/objects/platform_block.dart';
+import 'package:ember_flame/objects/platform_block_grass.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
-import 'package:flame_doc/actors/ember.dart';
-import 'package:flame_doc/objects/ground_block.dart';
-import 'package:flame_doc/objects/platform_block.dart';
-import 'package:flame_doc/objects/platform_block_grass.dart';
 import 'package:flutter/material.dart';
 
 import 'actors/water_enemy.dart';

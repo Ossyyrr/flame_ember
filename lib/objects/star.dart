@@ -1,7 +1,7 @@
+import 'package:ember_flame/ember_quest_game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame_doc/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 
 class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {

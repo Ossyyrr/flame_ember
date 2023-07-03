@@ -1,6 +1,6 @@
 {
-    "name": "flame_doc",
-    "short_name": "flame_doc",
+    "name": "ember_flame",
+    "short_name": "ember_flame",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

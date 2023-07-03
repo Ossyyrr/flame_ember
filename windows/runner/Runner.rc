@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "flame_doc" "\0"
+            VALUE "FileDescription", "ember_flame" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flame_doc" "\0"
+            VALUE "InternalName", "ember_flame" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2023 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flame_doc.exe" "\0"
-            VALUE "ProductName", "flame_doc" "\0"
+            VALUE "OriginalFilename", "ember_flame.exe" "\0"
+            VALUE "ProductName", "ember_flame" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

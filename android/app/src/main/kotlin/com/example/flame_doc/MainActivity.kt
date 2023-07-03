@@ -1,4 +1,4 @@
-package com.example.flame_doc
+package com.example.ember_flame
 
 import io.flutter.embedding.android.FlutterActivity
 

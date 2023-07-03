@@ -1,4 +1,4 @@
-# flame_doc
+# ember_flame
 
 A new Flutter project.
 

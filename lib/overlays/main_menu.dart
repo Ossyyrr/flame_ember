@@ -1,4 +1,4 @@
-import 'package:flame_doc/ember_quest_game.dart';
+import 'package:ember_flame/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 
 class MainMenu extends StatelessWidget {

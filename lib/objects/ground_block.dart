@@ -1,8 +1,8 @@
 import 'dart:math';
 
+import 'package:ember_flame/ember_quest_game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
-import 'package:flame_doc/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 
 import '../managers/segment_manager.dart';

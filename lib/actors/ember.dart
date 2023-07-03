@@ -1,9 +1,9 @@
+import 'package:ember_flame/actors/water_enemy.dart';
+import 'package:ember_flame/objects/platform_block_grass.dart';
+import 'package:ember_flame/objects/star.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
-import 'package:flame_doc/actors/water_enemy.dart';
-import 'package:flame_doc/objects/platform_block_grass.dart';
-import 'package:flame_doc/objects/star.dart';
 import 'package:flutter/services.dart';
 
 import '../ember_quest_game.dart';
