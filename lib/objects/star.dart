@@ -13,23 +13,26 @@ class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {
   Star({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64), anchor: Anchor.center);
+  }) : super(size: Vector2.all(64 * 2), anchor: Anchor.center);
 
   @override
   void onLoad() {
     final starImage = game.images.fromCache('star.png');
+
     sprite = Sprite(starImage);
     position = Vector2(
-      (gridPosition.x * size.x) + xOffset + (size.x / 2),
-      game.size.y - (gridPosition.y * size.y) - (size.y / 2),
+      (gridPosition.x * size.x / 2) + xOffset + (size.x / 4),
+      game.size.y - (gridPosition.y * size.y / 2) - (size.y / 4),
     );
-    add(RectangleHitbox(collisionType: CollisionType.passive));
+    add(
+      RectangleHitbox(collisionType: CollisionType.passive, size: size / 2),
+    );
     add(
       SizeEffect.by(
-        Vector2(-24, -24),
+        Vector2(-18, -18),
         EffectController(
           duration: 0.75,
-          reverseDuration: 0.5,
+          reverseDuration: 0.7,
           infinite: true,
           curve: Curves.easeOut,
         ),
