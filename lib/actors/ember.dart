@@ -2,6 +2,7 @@ import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame_doc/actors/water_enemy.dart';
+import 'package:flame_doc/objects/platform_block_grass.dart';
 import 'package:flame_doc/objects/star.dart';
 import 'package:flutter/services.dart';
 
@@ -127,7 +128,9 @@ class EmberPlayer extends SpriteAnimationComponent
 
   @override
   void onCollision(Set<Vector2> intersectionPoints, PositionComponent other) {
-    if (other is GroundBlock || other is PlatformBlock) {
+    if (other is GroundBlock ||
+        other is PlatformBlock ||
+        other is PlatformBlockGrass) {
       if (intersectionPoints.length == 2) {
         // Calculate the collision normal and separation distance.
         final mid = (intersectionPoints.elementAt(0) +

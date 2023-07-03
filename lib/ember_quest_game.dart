@@ -4,6 +4,7 @@ import 'package:flame/game.dart';
 import 'package:flame_doc/actors/ember.dart';
 import 'package:flame_doc/objects/ground_block.dart';
 import 'package:flame_doc/objects/platform_block.dart';
+import 'package:flame_doc/objects/platform_block_grass.dart';
 import 'package:flutter/material.dart';
 
 import 'actors/water_enemy.dart';
@@ -62,6 +63,7 @@ class EmberQuestGame extends FlameGame
     await images.loadAll([
       // Carga las imagenes en cache
       'block.png',
+      'block_grass.png',
       'ember.png',
       'ground.png',
       'heart_half.png',
@@ -115,6 +117,12 @@ class EmberQuestGame extends FlameGame
           break;
         case PlatformBlock:
           add(PlatformBlock(
+            gridPosition: block.gridPosition,
+            xOffset: xPositionOffset,
+          ));
+          break;
+        case PlatformBlockGrass:
+          add(PlatformBlockGrass(
             gridPosition: block.gridPosition,
             xOffset: xPositionOffset,
           ));
