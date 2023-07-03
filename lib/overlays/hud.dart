@@ -46,6 +46,7 @@ class Hud extends PositionComponent with HasGameRef<EmberQuestGame> {
       HeartHealthComponent(
         heartNumber: game.health,
         size: Vector2.all(32),
+        position: Vector2(12, 4),
       ),
     );
   }
