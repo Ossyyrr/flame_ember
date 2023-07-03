@@ -1,5 +1,6 @@
 import 'package:ember_flame/ember_quest_game.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MainMenu extends StatelessWidget {
   // Reference to parent game.
@@ -24,8 +25,33 @@ class MainMenu extends StatelessWidget {
             child: Image(
                 image: AssetImage('assets/images/bg_w.png'), fit: BoxFit.cover),
           ),
+          Positioned(
+              bottom: 12,
+              right: 12,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Text(
+                    'Game by Patricia Manzanero',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontFamily: GoogleFonts.indieFlower().fontFamily,
+                    ),
+                  ),
+                  Text(
+                    'Assets by Borja Bandera',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 12,
+                      fontFamily: GoogleFonts.indieFlower().fontFamily,
+                    ),
+                  ),
+                ],
+              )),
           Center(
             child: Container(
+              margin: const EdgeInsets.all(10),
               padding: const EdgeInsets.all(10.0),
               width: 300,
               decoration: const BoxDecoration(
@@ -37,23 +63,27 @@ class MainMenu extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  const SizedBox(height: 24),
                   const Text(
                     'Ember Flame',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 32),
                   Padding(
                     padding: const EdgeInsets.all(16),
                     child: TextFormField(
+                      cursorColor: Colors.white,
                       style: const TextStyle(color: Colors.white),
+                      textAlign: TextAlign.center,
                       decoration: InputDecoration(
                         labelText: 'Player Name',
                         labelStyle: const TextStyle(color: Colors.white),
                         filled: true,
-                        fillColor: Colors.white.withOpacity(0.1),
+                        fillColor: Colors.white.withOpacity(0.2),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: const BorderSide(color: Colors.white),
@@ -62,11 +92,15 @@ class MainMenu extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10.0),
                           borderSide: const BorderSide(color: Colors.white),
                         ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                          borderSide: const BorderSide(color: Colors.white),
+                        ),
                       ),
                       onChanged: (text) => setPlayerName(text),
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   SizedBox(
                     width: 200,
                     height: 75,
@@ -82,20 +116,21 @@ class MainMenu extends StatelessWidget {
                         'Play',
                         style: TextStyle(
                           fontSize: 40.0,
-                          color: Colors.black,
+                          color: Colors.black87,
                         ),
                       ),
                     ),
                   ),
                   const SizedBox(height: 20),
                   const Text(
-                    'Use WAD or Arrow Keys for movement. Space bar to jump. Collect as many stars as you can and avoid enemies!',
+                    'Use WAD or Arrow Keys for movement.\nSpace bar to jump.\nCollect as many stars as you can\nand avoid enemies!',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 14,
                     ),
                   ),
+                  const SizedBox(height: 12),
                 ],
               ),
             ),

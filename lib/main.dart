@@ -3,6 +3,7 @@ import 'package:ember_flame/overlays/main_menu.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'ember_quest_game.dart';
 import 'firebase_options.dart';
@@ -17,6 +18,9 @@ void main() async {
 
   runApp(
     MaterialApp(
+      theme: ThemeData(
+        fontFamily: GoogleFonts.lilitaOne().fontFamily,
+      ),
       home: GameWidget<EmberQuestGame>.controlled(
         focusNode: focusNode,
         gameFactory: EmberQuestGame.new,
