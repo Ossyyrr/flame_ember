@@ -29,14 +29,16 @@ class MainMenu extends StatelessWidget {
               padding: const EdgeInsets.all(10.0),
               width: 300,
               decoration: const BoxDecoration(
-                  color: Colors.blue,
+                  image: DecorationImage(
+                      image: AssetImage('assets/images/block_grass.png'),
+                      fit: BoxFit.cover),
                   borderRadius: BorderRadius.all(Radius.circular(20))),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
-                    'Ember Quest',
+                    'Ember Flame',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
