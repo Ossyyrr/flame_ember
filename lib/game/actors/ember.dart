@@ -1,9 +1,11 @@
 import 'package:ember_flame/game/actors/water_enemy.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:ember_flame/game/objects/star.dart';
+import 'package:ember_flame/utils/crate_animation_by_limit.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame/sprite.dart';
 import 'package:flutter/services.dart';
 
 import '../objects/ground_block.dart';
@@ -14,7 +16,9 @@ class EmberPlayer extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {
   EmberPlayer({
     required super.position,
-  }) : super(size: Vector2.all(64), anchor: Anchor.center);
+  }) : super(size: Vector2.all(64 * 1.4), anchor: Anchor.bottomCenter) {
+    anchor = const Anchor(0.5, 0); // CENTRO
+  }
   bool hitByEnemy = false;
   int horizontalDirection = 0;
   final Vector2 velocity = Vector2.zero();
@@ -40,16 +44,32 @@ class EmberPlayer extends SpriteAnimationComponent
     horizontalDirection = 1;
   }
 
+  late SpriteAnimation deadAnimation,
+      walkAnimation,
+      angryAnimation,
+      lastAnimation;
+
   @override
   void onLoad() {
-    animation = SpriteAnimation.fromFrameData(
-      game.images.fromCache('ember.png'),
-      SpriteAnimationData.sequenced(
-        amount: 4,
-        textureSize: Vector2.all(16),
-        stepTime: 0.12,
-      ),
-    );
+    final spriteSheet = SpriteSheet(
+        image: game.images.fromCache('ember.png'), srcSize: Vector2(787, 770));
+
+    walkAnimation = spriteSheet.createAnimationByLimit(
+        xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.4);
+    deadAnimation = spriteSheet.createAnimationByLimit(
+        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.4);
+    angryAnimation = spriteSheet.createAnimationByLimit(
+        xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.4);
+
+    animation = walkAnimation;
+    // animation = SpriteAnimation.fromFrameData(
+    //   game.images.fromCache('ember.png'),
+    //   SpriteAnimationData.sequenced(
+    //     amount: 4,
+    //     textureSize: Vector2.all(787),
+    //     stepTime: 0.12,
+    //   ),
+    // );
     add(CircleHitbox());
   }
 

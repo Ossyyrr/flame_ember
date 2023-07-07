@@ -1,7 +1,9 @@
 import 'package:ember_flame/game/services/ember_quest_game.dart';
+import 'package:ember_flame/utils/crate_animation_by_limit.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flame/sprite.dart';
 
 class WaterEnemy extends SpriteAnimationComponent
     with HasGameRef<EmberQuestGame> {
@@ -13,27 +15,50 @@ class WaterEnemy extends SpriteAnimationComponent
   WaterEnemy({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(size: Vector2.all(64 * 1.4), anchor: Anchor.bottomCenter) {
+    anchor = const Anchor(0.5, 0.15); // CENTRO
+  }
+
+  late SpriteAnimation deadAnimation,
+      walkAnimation,
+      angryAnimation,
+      lastAnimation;
 
   @override
   void onLoad() {
-    animation = SpriteAnimation.fromFrameData(
-      game.images.fromCache('water_enemy.png'),
-      SpriteAnimationData.sequenced(
-        amount: 2,
-        textureSize: Vector2.all(16),
-        stepTime: 0.70,
-      ),
-    );
+    final spriteSheet = SpriteSheet(
+        image: game.images.fromCache('water_enemy.png'),
+        srcSize: Vector2(787, 770));
+
+    walkAnimation = spriteSheet.createAnimationByLimit(
+        xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.4);
+    deadAnimation = spriteSheet.createAnimationByLimit(
+        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.4);
+    angryAnimation = spriteSheet.createAnimationByLimit(
+        xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.4);
+
+    animation = angryAnimation;
+
+    // animation = SpriteAnimation.fromFrameData(
+    //   game.images.fromCache('water_enemy.png'),
+    //   SpriteAnimationData.sequenced(
+    //     amount: 2,
+    //     textureSize: Vector2.all(16),
+    //     stepTime: 0.70,
+    //   ),
+    // );
     position = Vector2(
       (gridPosition.x * size.x) + xOffset + (size.x / 2),
       game.size.y - (gridPosition.y * size.y) - (size.y / 2),
     );
     add(RectangleHitbox(collisionType: CollisionType.passive));
+    flipHorizontally();
     add(
       MoveEffect.by(
         Vector2(-2 * size.x, 0),
         EffectController(
+          onMax: () => flipHorizontally(),
+          onMin: () => flipHorizontally(),
           duration: 3,
           alternate: true,
           infinite: true,
