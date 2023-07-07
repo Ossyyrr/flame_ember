@@ -1,16 +1,16 @@
-import 'package:ember_flame/actors/ember.dart';
-import 'package:ember_flame/objects/ground_block.dart';
-import 'package:ember_flame/objects/platform_block.dart';
-import 'package:ember_flame/objects/platform_block_grass.dart';
+import 'package:ember_flame/game/actors/ember.dart';
+import 'package:ember_flame/game/objects/ground_block.dart';
+import 'package:ember_flame/game/objects/platform_block.dart';
+import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-import 'actors/water_enemy.dart';
-import 'managers/segment_manager.dart';
-import 'objects/star.dart';
-import 'overlays/hud.dart';
+import '../actors/water_enemy.dart';
+import '../managers/segment_manager.dart';
+import '../objects/star.dart';
+import '../overlays/hud.dart';
 
 class EmberQuestGame extends FlameGame
     with

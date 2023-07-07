@@ -1,12 +1,12 @@
-import 'package:ember_flame/overlays/game_over.dart';
-import 'package:ember_flame/overlays/main_menu.dart';
+import 'package:ember_flame/game/overlays/game_over.dart';
+import 'package:ember_flame/game/overlays/main_menu.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'ember_quest_game.dart';
 import 'firebase_options.dart';
+import 'game/services/ember_quest_game.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,6 +15,10 @@ void main() async {
   );
   FocusNode focusNode = FocusNode();
   String playerName = 'New Player';
+
+// TODO
+// Hitbox borde de pantalla
+// Iniciar juego al dar a play (no segundo plano)
 
   runApp(
     MaterialApp(

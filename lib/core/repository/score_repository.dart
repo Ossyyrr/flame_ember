@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:ember_flame/core/model/score.dart';
-import 'package:ember_flame/services/firestore.dart';
+import 'package:ember_flame/core/services/firestore.dart';
 
 class ScoreRepository {
   static final StreamController<List<Score>> scoresController =

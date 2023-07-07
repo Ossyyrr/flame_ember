@@ -1,4 +1,4 @@
-import 'package:ember_flame/ember_quest_game.dart';
+import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';

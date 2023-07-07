@@ -1,4 +1,4 @@
-import 'package:ember_flame/ember_quest_game.dart';
+import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

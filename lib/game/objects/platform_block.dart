@@ -1,22 +1,21 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
-import '../ember_quest_game.dart';
+import '../services/ember_quest_game.dart';
 
-class PlatformBlockGrass extends SpriteComponent
-    with HasGameRef<EmberQuestGame> {
+class PlatformBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
   final Vector2 velocity = Vector2.zero();
 
-  PlatformBlockGrass({
+  PlatformBlock({
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
 
   @override
   void onLoad() {
-    final platformImage = game.images.fromCache('block_grass.png');
+    final platformImage = game.images.fromCache('block.png');
     sprite = Sprite(platformImage);
     position = Vector2(
       (gridPosition.x * size.x) + xOffset,

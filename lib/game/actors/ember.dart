@@ -1,14 +1,14 @@
-import 'package:ember_flame/actors/water_enemy.dart';
-import 'package:ember_flame/objects/platform_block_grass.dart';
-import 'package:ember_flame/objects/star.dart';
+import 'package:ember_flame/game/actors/water_enemy.dart';
+import 'package:ember_flame/game/objects/platform_block_grass.dart';
+import 'package:ember_flame/game/objects/star.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flutter/services.dart';
 
-import '../ember_quest_game.dart';
 import '../objects/ground_block.dart';
 import '../objects/platform_block.dart';
+import '../services/ember_quest_game.dart';
 
 class EmberPlayer extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {

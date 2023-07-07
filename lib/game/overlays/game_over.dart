@@ -1,6 +1,6 @@
 import 'package:ember_flame/core/model/score.dart';
 import 'package:ember_flame/core/repository/score_repository.dart';
-import 'package:ember_flame/ember_quest_game.dart';
+import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 
 class GameOver extends StatelessWidget {
