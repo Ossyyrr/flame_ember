@@ -1,4 +1,5 @@
 import 'package:ember_flame/game/services/ember_quest_game.dart';
+import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -13,7 +14,13 @@ class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {
   Star({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64 * 2), anchor: Anchor.center);
+  }) : super(
+          size: Vector2.all(64 * 2),
+          anchor: Anchor.center,
+        ) {
+    anchor = const Anchor(0.5, 0.50); // CENTRO
+    debugMode = Globals.showHitBox; // Permite ver los hitBox
+  }
 
   @override
   void onLoad() {
@@ -25,7 +32,11 @@ class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {
       game.size.y - (gridPosition.y * size.y / 2) - (size.y / 4),
     );
     add(
-      RectangleHitbox(collisionType: CollisionType.passive, size: size / 2),
+      RectangleHitbox(
+        collisionType: CollisionType.passive,
+        size: size / 2,
+        position: Vector2(28, 28),
+      ),
     );
     add(
       SizeEffect.by(

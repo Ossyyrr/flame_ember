@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:ember_flame/game/services/ember_quest_game.dart';
-import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft) {
-    debugMode = Globals.showHitBox; // Permite ver los hitBox
+    // debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
 
   @override

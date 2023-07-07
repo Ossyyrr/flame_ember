@@ -74,7 +74,13 @@ class EmberPlayer extends SpriteAnimationComponent
     // );
 
     // HITBOX
-    add(CircleHitbox(radius: 34, position: Vector2(10, 28)));
+
+    add(
+      CircleHitbox(
+        radius: 34,
+        position: Vector2(12, 28),
+      ),
+    );
   }
 
   @override

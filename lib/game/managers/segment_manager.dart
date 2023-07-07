@@ -25,6 +25,7 @@ final segments = [
 ];
 
 final segment0 = [
+  Block(Vector2(4, 4), Star),
   Block(Vector2(0, 0), GroundBlock),
   Block(Vector2(1, 0), GroundBlock),
   Block(Vector2(2, 0), GroundBlock),

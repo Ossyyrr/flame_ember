@@ -41,19 +41,17 @@ class WaterEnemy extends SpriteAnimationComponent
 
     animation = angryAnimation;
 
-    // animation = SpriteAnimation.fromFrameData(
-    //   game.images.fromCache('water_enemy.png'),
-    //   SpriteAnimationData.sequenced(
-    //     amount: 2,
-    //     textureSize: Vector2.all(16),
-    //     stepTime: 0.70,
-    //   ),
-    // );
     position = Vector2(
       (gridPosition.x * size.x) + xOffset + (size.x / 2),
       game.size.y - (gridPosition.y * size.y) - (size.y / 2),
     );
-    add(RectangleHitbox(collisionType: CollisionType.passive));
+    add(
+      RectangleHitbox(
+        collisionType: CollisionType.passive,
+        size: Vector2(64, 74),
+        position: Vector2(17, 22),
+      ),
+    );
     flipHorizontally();
     add(
       MoveEffect.by(
