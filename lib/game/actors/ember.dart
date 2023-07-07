@@ -34,6 +34,10 @@ class EmberPlayer extends SpriteAnimationComponent
 
   bool hasJumped = false;
 
+  late SpriteAnimation deadAnimation,
+      walkAnimation,
+      angryAnimation,
+      lastAnimation;
   void jump() {
     hasJumped = true;
   }
@@ -46,32 +50,19 @@ class EmberPlayer extends SpriteAnimationComponent
     horizontalDirection = 1;
   }
 
-  late SpriteAnimation deadAnimation,
-      walkAnimation,
-      angryAnimation,
-      lastAnimation;
-
   @override
   void onLoad() {
     final spriteSheet = SpriteSheet(
         image: game.images.fromCache('ember.png'), srcSize: Vector2(787, 770));
 
     walkAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.4);
+        xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.3);
     deadAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.4);
+        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.3);
     angryAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.4);
+        xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.3);
 
     animation = walkAnimation;
-    // animation = SpriteAnimation.fromFrameData(
-    //   game.images.fromCache('ember.png'),
-    //   SpriteAnimationData.sequenced(
-    //     amount: 4,
-    //     textureSize: Vector2.all(787),
-    //     stepTime: 0.12,
-    //   ),
-    // );
 
     // HITBOX
 
@@ -141,13 +132,14 @@ class EmberPlayer extends SpriteAnimationComponent
   bool onKeyEvent(RawKeyEvent event, Set<LogicalKeyboardKey> keysPressed) {
     horizontalDirection = 0;
 
-    if (keysPressed.contains(LogicalKeyboardKey.keyA) ||
-        keysPressed.contains(LogicalKeyboardKey.arrowLeft)) {
-      horizontalDirection = -1;
+    if (((keysPressed.contains(LogicalKeyboardKey.keyA) ||
+        keysPressed.contains(LogicalKeyboardKey.arrowLeft)))) {
+      goLeft();
     }
+
     if (keysPressed.contains(LogicalKeyboardKey.keyD) ||
         keysPressed.contains(LogicalKeyboardKey.arrowRight)) {
-      horizontalDirection = 1;
+      goRight();
     }
 
     hasJumped = keysPressed.contains(LogicalKeyboardKey.space) ||
@@ -189,6 +181,10 @@ class EmberPlayer extends SpriteAnimationComponent
 
     if (other is WaterEnemy) {
       hit();
+    }
+
+    if (other is ScreenHitbox) {
+      position += Vector2(8, 0);
     }
 
     super.onCollision(intersectionPoints, other);

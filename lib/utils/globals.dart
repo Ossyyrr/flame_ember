@@ -1,3 +1,3 @@
 class Globals {
-  static bool showHitBox = true;
+  static bool showHitBox = false;
 }

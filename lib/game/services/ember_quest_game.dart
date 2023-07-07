@@ -60,6 +60,8 @@ class EmberQuestGame extends FlameGame
 
   @override
   Future<void> onLoad() async {
+    add(ScreenHitbox()); // HitBox en los bordes de la pantalla
+
     await images.loadAll([
       // Carga las imagenes en cache
       'block.png',
