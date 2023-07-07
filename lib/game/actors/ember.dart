@@ -124,6 +124,8 @@ class EmberPlayer extends SpriteAnimationComponent
 // If ember fell in pit, then game over.
     if (position.y > game.size.y + size.y) {
       game.health = 0;
+      game.gameOver = true;
+      game.overlays.add('GameOver');
     }
 
     if (game.gameOver) {
