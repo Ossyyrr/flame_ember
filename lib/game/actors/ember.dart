@@ -2,6 +2,7 @@ import 'package:ember_flame/game/actors/water_enemy.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:ember_flame/game/objects/star.dart';
 import 'package:ember_flame/utils/crate_animation_by_limit.dart';
+import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -18,7 +19,7 @@ class EmberPlayer extends SpriteAnimationComponent
     required super.position,
   }) : super(size: Vector2.all(64 * 1.5), anchor: Anchor.bottomCenter) {
     anchor = const Anchor(0.5, 0); // CENTRO
-    debugMode = true; // Permite ver los hitBox
+    debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
   bool hitByEnemy = false;
   int horizontalDirection = 0;
@@ -71,7 +72,9 @@ class EmberPlayer extends SpriteAnimationComponent
     //     stepTime: 0.12,
     //   ),
     // );
-    add(CircleHitbox());
+
+    // HITBOX
+    add(CircleHitbox(radius: 34, position: Vector2(10, 28)));
   }
 
   @override

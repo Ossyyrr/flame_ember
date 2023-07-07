@@ -31,7 +31,6 @@ final segment0 = [
   Block(Vector2(3, 0), GroundBlock),
   Block(Vector2(4, 0), GroundBlock),
   Block(Vector2(5, 0), GroundBlock),
-  Block(Vector2(5, 1), WaterEnemy),
   Block(Vector2(5, 3), PlatformBlockGrass),
   Block(Vector2(6, 0), GroundBlock),
   Block(Vector2(6, 3), PlatformBlockGrass),
@@ -40,6 +39,7 @@ final segment0 = [
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 3), PlatformBlockGrass),
   Block(Vector2(9, 0), GroundBlock),
+  Block(Vector2(5, 1), WaterEnemy),
 ];
 
 final segment1 = [
@@ -56,8 +56,8 @@ final segment1 = [
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 1), PlatformBlockGrass),
   Block(Vector2(8, 5), PlatformBlockGrass),
-  Block(Vector2(8, 6), WaterEnemy),
   Block(Vector2(9, 0), GroundBlock),
+  Block(Vector2(8, 6), WaterEnemy),
 ];
 
 final segment2 = [
@@ -70,7 +70,6 @@ final segment2 = [
   Block(Vector2(4, 3), PlatformBlockGrass),
   Block(Vector2(5, 0), GroundBlock),
   Block(Vector2(5, 3), PlatformBlockGrass),
-  Block(Vector2(5, 4), WaterEnemy),
   Block(Vector2(6, 0), GroundBlock),
   Block(Vector2(6, 3), PlatformBlock),
   Block(Vector2(6, 4), PlatformBlock),
@@ -79,12 +78,12 @@ final segment2 = [
   Block(Vector2(7, 0), GroundBlock),
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(9, 0), GroundBlock),
+  Block(Vector2(5, 4), WaterEnemy),
 ];
 
 final segment3 = [
   Block(Vector2(0, 0), GroundBlock),
   Block(Vector2(1, 0), GroundBlock),
-  Block(Vector2(1, 1), WaterEnemy),
   Block(Vector2(2, 0), GroundBlock),
   Block(Vector2(2, 1), PlatformBlock),
   Block(Vector2(2, 2), PlatformBlockGrass),
@@ -95,6 +94,7 @@ final segment3 = [
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 8), Star),
   Block(Vector2(9, 0), GroundBlock),
+  Block(Vector2(1, 1), WaterEnemy),
 ];
 
 final segment4 = [
@@ -103,7 +103,6 @@ final segment4 = [
   Block(Vector2(2, 0), GroundBlock),
   Block(Vector2(2, 3), PlatformBlockGrass),
   Block(Vector2(3, 0), GroundBlock),
-  Block(Vector2(3, 1), WaterEnemy),
   Block(Vector2(3, 3), PlatformBlockGrass),
   Block(Vector2(4, 0), GroundBlock),
   Block(Vector2(5, 0), GroundBlock),
@@ -115,6 +114,7 @@ final segment4 = [
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 3), PlatformBlockGrass),
   Block(Vector2(9, 0), GroundBlock),
-  Block(Vector2(9, 1), WaterEnemy),
   Block(Vector2(9, 3), PlatformBlockGrass),
+  Block(Vector2(3, 1), WaterEnemy),
+  Block(Vector2(9, 1), WaterEnemy),
 ];

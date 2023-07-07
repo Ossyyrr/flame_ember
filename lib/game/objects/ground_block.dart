@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:ember_flame/game/services/ember_quest_game.dart';
+import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft) {
-    debugMode = true; // Permite ver los hitBox
+    debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
 
   @override
@@ -30,7 +31,12 @@ class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
       gridPosition.x * size.x + xOffset,
       game.size.y - gridPosition.y * size.y,
     );
-    add(RectangleHitbox(collisionType: CollisionType.passive));
+    add(
+      RectangleHitbox(
+          collisionType: CollisionType.passive,
+          size: Vector2(64, 58),
+          position: Vector2(0, 6)),
+    );
     if (gridPosition.x == 9 && position.x > game.lastBlockXPosition) {
       game.lastBlockKey = _blockKey;
       game.lastBlockXPosition = position.x + size.x;

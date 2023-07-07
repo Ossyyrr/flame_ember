@@ -1,3 +1,4 @@
+import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
@@ -12,7 +13,9 @@ class PlatformBlockGrass extends SpriteComponent
   PlatformBlockGrass({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft) {
+    debugMode = Globals.showHitBox; // Permite ver los hitBox
+  }
 
   @override
   void onLoad() {
@@ -22,7 +25,13 @@ class PlatformBlockGrass extends SpriteComponent
       (gridPosition.x * size.x) + xOffset,
       game.size.y - (gridPosition.y * size.y),
     );
-    add(RectangleHitbox(collisionType: CollisionType.passive));
+    add(
+      RectangleHitbox(
+        collisionType: CollisionType.passive,
+        size: Vector2(64, 58),
+        position: Vector2(0, 6),
+      ),
+    );
   }
 
   @override

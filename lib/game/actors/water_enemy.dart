@@ -1,5 +1,6 @@
 import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:ember_flame/utils/crate_animation_by_limit.dart';
+import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
@@ -16,8 +17,8 @@ class WaterEnemy extends SpriteAnimationComponent
     required this.gridPosition,
     required this.xOffset,
   }) : super(size: Vector2.all(64 * 1.5), anchor: Anchor.bottomCenter) {
-    anchor = const Anchor(0.5, 0.15); // CENTRO
-    debugMode = true; // Permite ver los hitBox
+    anchor = const Anchor(0.5, 0.10); // CENTRO
+    debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
 
   late SpriteAnimation deadAnimation,
