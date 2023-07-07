@@ -184,7 +184,10 @@ class EmberPlayer extends SpriteAnimationComponent
     }
 
     if (other is ScreenHitbox) {
-      position += Vector2(8, 0);
+      // left
+      if (intersectionPoints.first[0] <= 0) {
+        position += Vector2(8, 0);
+      }
     }
 
     super.onCollision(intersectionPoints, other);

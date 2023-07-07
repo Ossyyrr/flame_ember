@@ -45,6 +45,7 @@ final segment0 = [
 
 final segment1 = [
   Block(Vector2(0, 0), GroundBlock),
+  Block(Vector2(1, 0), PlatformBlock),
   Block(Vector2(1, 0), GroundBlock),
   Block(Vector2(1, 1), PlatformBlock),
   Block(Vector2(1, 2), PlatformBlock),
@@ -54,6 +55,7 @@ final segment1 = [
   Block(Vector2(6, 5), PlatformBlockGrass),
   Block(Vector2(7, 5), PlatformBlockGrass),
   Block(Vector2(7, 7), Star),
+  Block(Vector2(8, 0), PlatformBlock),
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 1), PlatformBlockGrass),
   Block(Vector2(8, 5), PlatformBlockGrass),
@@ -85,11 +87,13 @@ final segment2 = [
 final segment3 = [
   Block(Vector2(0, 0), GroundBlock),
   Block(Vector2(1, 0), GroundBlock),
+  Block(Vector2(2, 0), PlatformBlock),
   Block(Vector2(2, 0), GroundBlock),
   Block(Vector2(2, 1), PlatformBlock),
   Block(Vector2(2, 2), PlatformBlockGrass),
   Block(Vector2(4, 4), PlatformBlockGrass),
   Block(Vector2(6, 6), PlatformBlockGrass),
+  Block(Vector2(7, 0), PlatformBlock),
   Block(Vector2(7, 0), GroundBlock),
   Block(Vector2(7, 1), PlatformBlockGrass),
   Block(Vector2(8, 0), GroundBlock),
