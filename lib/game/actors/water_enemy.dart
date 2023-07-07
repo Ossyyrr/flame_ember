@@ -1,3 +1,4 @@
+import 'package:ember_flame/game/overlays/widget/character_selector.dart';
 import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:ember_flame/utils/crate_animation_by_limit.dart';
 import 'package:ember_flame/utils/globals.dart';
@@ -29,7 +30,10 @@ class WaterEnemy extends SpriteAnimationComponent
   @override
   void onLoad() {
     final spriteSheet = SpriteSheet(
-        image: game.images.fromCache('water_enemy.png'),
+        image: game.images.fromCache(
+            Globals.selectedCharacter == Character.ember
+                ? 'water_enemy.png'
+                : 'ember.png'),
         srcSize: Vector2(787, 770));
 
     walkAnimation = spriteSheet.createAnimationByLimit(

@@ -1,3 +1,4 @@
+import 'package:ember_flame/game/overlays/widget/character_selector.dart';
 import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -98,6 +99,32 @@ class MainMenu extends StatelessWidget {
                       ),
                       onChanged: (text) => setPlayerName(text),
                     ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Choose your character',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CharacterSelector(
+                        asset: 'assets/images/pj1.png',
+                        // backgroundColor: Colors.blue,
+                        character: Character.ember,
+                      ),
+                      SizedBox(width: 8),
+                      CharacterSelector(
+                        asset: 'assets/images/pj2.png',
+                        // backgroundColor: Colors.amber,
+                        character: Character.water,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 10),
                   SizedBox(

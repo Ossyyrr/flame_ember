@@ -1,6 +1,7 @@
 import 'package:ember_flame/game/actors/water_enemy.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:ember_flame/game/objects/star.dart';
+import 'package:ember_flame/game/overlays/widget/character_selector.dart';
 import 'package:ember_flame/utils/crate_animation_by_limit.dart';
 import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
@@ -53,7 +54,11 @@ class EmberPlayer extends SpriteAnimationComponent
   @override
   void onLoad() {
     final spriteSheet = SpriteSheet(
-        image: game.images.fromCache('ember.png'), srcSize: Vector2(787, 770));
+        image: game.images.fromCache(
+            Globals.selectedCharacter == Character.ember
+                ? 'ember.png'
+                : 'water_enemy.png'),
+        srcSize: Vector2(787, 770));
 
     walkAnimation = spriteSheet.createAnimationByLimit(
         xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.3);
