@@ -16,8 +16,9 @@ class EmberPlayer extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {
   EmberPlayer({
     required super.position,
-  }) : super(size: Vector2.all(64 * 1.4), anchor: Anchor.bottomCenter) {
+  }) : super(size: Vector2.all(64 * 1.5), anchor: Anchor.bottomCenter) {
     anchor = const Anchor(0.5, 0); // CENTRO
+    debugMode = true; // Permite ver los hitBox
   }
   bool hitByEnemy = false;
   int horizontalDirection = 0;

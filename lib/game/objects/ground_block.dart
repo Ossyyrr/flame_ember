@@ -15,9 +15,12 @@ class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
   final Vector2 velocity = Vector2.zero();
 
   GroundBlock({
+    // TODO Hacer el hitbox mas fit para que no parezca que flota el personaje
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft) {
+    debugMode = true; // Permite ver los hitBox
+  }
 
   @override
   void onLoad() {
