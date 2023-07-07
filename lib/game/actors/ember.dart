@@ -63,7 +63,7 @@ class EmberPlayer extends SpriteAnimationComponent
     walkAnimation = spriteSheet.createAnimationByLimit(
         xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.3);
     deadAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.3);
+        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.3, loop: false);
     angryAnimation = spriteSheet.createAnimationByLimit(
         xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.3);
 
@@ -220,7 +220,7 @@ class EmberPlayer extends SpriteAnimationComponent
     if (game.health == 0) {
       animation = deadAnimation;
 
-      Future.delayed(const Duration(milliseconds: 1700), () {
+      Future.delayed(const Duration(milliseconds: 1800), () {
         game.gameOver = true;
         game.overlays.add('GameOver');
       });

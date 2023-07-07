@@ -1,3 +1,4 @@
+import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:ember_flame/utils/globals.dart';
 import 'package:flutter/material.dart';
 
@@ -8,10 +9,14 @@ class CharacterSelector extends StatefulWidget {
       {super.key,
       required this.asset,
       this.backgroundColor,
-      required this.character});
+      required this.character,
+      required this.game,
+      required this.focusNode});
   final String asset;
   final Color? backgroundColor;
   final Character character;
+  final EmberQuestGame game;
+  final FocusNode focusNode;
   @override
   State<CharacterSelector> createState() => _CharacterSelectorState();
 }
@@ -22,7 +27,13 @@ class _CharacterSelectorState extends State<CharacterSelector> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => Globals.selectedCharacter = widget.character,
+      onTap: () {
+        Globals.selectedCharacter = widget.character;
+        widget.game.gameOver = false;
+        widget.focusNode.requestFocus();
+        widget.game.overlays.remove('MainMenu');
+        widget.game.initializeGame(true);
+      },
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         onEnter: (_) {

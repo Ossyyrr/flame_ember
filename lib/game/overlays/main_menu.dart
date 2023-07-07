@@ -110,44 +110,26 @@ class MainMenu extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       CharacterSelector(
                         asset: 'assets/images/pj1.png',
                         // backgroundColor: Colors.blue,
                         character: Character.ember,
+                        game: game,
+
+                        focusNode: focusNode,
                       ),
-                      SizedBox(width: 8),
+                      const SizedBox(width: 8),
                       CharacterSelector(
                         asset: 'assets/images/pj2.png',
                         // backgroundColor: Colors.amber,
                         character: Character.water,
+                        game: game,
+                        focusNode: focusNode,
                       ),
                     ],
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    width: 200,
-                    height: 75,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        game.gameOver = false;
-                        focusNode.requestFocus();
-                        game.overlays.remove('MainMenu');
-                        game.initializeGame(true);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                      ),
-                      child: const Text(
-                        'Play',
-                        style: TextStyle(
-                          fontSize: 40.0,
-                          color: Colors.black87,
-                        ),
-                      ),
-                    ),
                   ),
                   const SizedBox(height: 20),
                   const Text(

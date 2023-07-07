@@ -39,7 +39,7 @@ class WaterEnemy extends SpriteAnimationComponent
     walkAnimation = spriteSheet.createAnimationByLimit(
         xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.4);
     deadAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.4);
+        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.4, loop: false);
     angryAnimation = spriteSheet.createAnimationByLimit(
         xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.4);
 
