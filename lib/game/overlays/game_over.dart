@@ -89,6 +89,7 @@ class GameOver extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         game.reset();
+
                         game.overlays.remove('GameOver');
                       },
                       style: ElevatedButton.styleFrom(

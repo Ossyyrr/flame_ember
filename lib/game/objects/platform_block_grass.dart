@@ -39,7 +39,7 @@ class PlatformBlockGrass extends SpriteComponent
     velocity.x = game.objectSpeed; // Velocidad definida en EmberQuestGame
     position += velocity * dt;
     if (position.x < -size.x) removeFromParent();
-    if (position.x < -size.x || game.health <= 0) {
+    if (position.x < -size.x || game.gameOver) {
       removeFromParent();
     }
     super.update(dt);

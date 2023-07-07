@@ -105,6 +105,7 @@ class MainMenu extends StatelessWidget {
                     height: 75,
                     child: ElevatedButton(
                       onPressed: () {
+                        game.gameOver = false;
                         focusNode.requestFocus();
                         game.overlays.remove('MainMenu');
                       },

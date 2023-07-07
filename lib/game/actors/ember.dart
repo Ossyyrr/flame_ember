@@ -121,9 +121,8 @@ class EmberPlayer extends SpriteAnimationComponent
       game.health = 0;
     }
 
-    if (game.health <= 0) {
+    if (game.gameOver) {
       removeFromParent(); // Remove ember from game.
-      game.overlays.add('GameOver');
     }
     super.update(dt);
   }
@@ -199,17 +198,27 @@ class EmberPlayer extends SpriteAnimationComponent
     if (!hitByEnemy) {
       hitByEnemy = true;
       game.health--;
+
+      add(
+        OpacityEffect.fadeOut(
+          EffectController(
+            alternate: true,
+            duration: 0.1,
+            repeatCount: 5,
+          ),
+        )..onComplete = () {
+            hitByEnemy = false;
+          },
+      );
     }
-    add(
-      OpacityEffect.fadeOut(
-        EffectController(
-          alternate: true,
-          duration: 0.1,
-          repeatCount: 5,
-        ),
-      )..onComplete = () {
-          hitByEnemy = false;
-        },
-    );
+
+    if (game.health == 0) {
+      animation = deadAnimation;
+
+      Future.delayed(const Duration(milliseconds: 1700), () {
+        game.gameOver = true;
+        game.overlays.add('GameOver');
+      });
+    }
   }
 }

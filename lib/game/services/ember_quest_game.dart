@@ -32,6 +32,7 @@ class EmberQuestGame extends FlameGame
 
   int starsCollected = 0;
   int health = 3;
+  bool gameOver = false;
 
   @override
   Color backgroundColor() {
@@ -105,6 +106,7 @@ class EmberQuestGame extends FlameGame
   }
 
   void reset() {
+    gameOver = false;
     starsCollected = 0;
     health = 3;
     initializeGame(false);

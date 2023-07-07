@@ -71,7 +71,7 @@ class WaterEnemy extends SpriteAnimationComponent
   void update(double dt) {
     velocity.x = game.objectSpeed;
     position += velocity * dt;
-    if (position.x < -size.x || game.health <= 0) {
+    if (position.x < -size.x || game.gameOver) {
       removeFromParent();
     }
     super.update(dt);
