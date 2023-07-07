@@ -135,6 +135,7 @@ class MainMenu extends StatelessWidget {
                         game.gameOver = false;
                         focusNode.requestFocus();
                         game.overlays.remove('MainMenu');
+                        game.initializeGame(true);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,

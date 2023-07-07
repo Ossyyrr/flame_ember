@@ -82,7 +82,6 @@ class EmberQuestGame extends FlameGame
     cameraComponent = CameraComponent(world: world);
     cameraComponent.viewfinder.anchor = Anchor.topLeft;
     addAll([cameraComponent, world]);
-    initializeGame(true);
   }
 
   void initializeGame(bool loadHud) {
