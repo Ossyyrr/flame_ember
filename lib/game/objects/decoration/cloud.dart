@@ -49,11 +49,11 @@ class Cloud extends SpriteComponent with HasGameRef<EmberQuestGame> {
     sprite = await Sprite.load(cloud);
     add(
       MoveEffect.by(
-        Vector2(-random.nextDouble() * size.x * 2, 0),
+        Vector2((-screenWidth * 2.5), 0),
         EffectController(
           onMax: () => flipHorizontally(),
           onMin: () => flipHorizontally(),
-          duration: 100,
+          duration: 250,
         ),
       ),
     );

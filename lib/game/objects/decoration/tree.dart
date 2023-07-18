@@ -51,7 +51,7 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
 
     add(
       RotateEffect.by(
-        0.008,
+        0.01,
         EffectController(
           duration: 2,
           reverseDuration: 1.5,
