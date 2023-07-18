@@ -105,6 +105,9 @@ class EmberQuestGame extends FlameGame
       loadGameSegments(i, (640 * i).toDouble());
     }
 
+    add(Tree(isInitial: true));
+    add(Tree(isInitial: true));
+
     _ember = EmberPlayer(
       position: Vector2(128, canvasSize.y - 128),
     );

@@ -4,16 +4,19 @@ import 'dart:math';
 import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/components.dart';
+import 'package:flame/effects.dart';
+import 'package:flutter/material.dart';
 
 class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
-  Tree() : super() {
+  final bool isInitial;
+  Tree({this.isInitial = false}) : super() {
+    anchor = const Anchor(0.5, 1);
+
     priority = -1; // z-index
     debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
   static late double treeWidth, treeHeigth;
-
-  Random random = Random();
-
+  final Random random = Random();
   late double screenWidth, screenHeight;
 
   final double spriteSheetWidth = 77.1,
@@ -33,19 +36,44 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
     screenWidth = game.size.x;
     screenHeight = game.size.y;
 
-    treeHeigth = screenHeight / 1.5;
-    treeWidth = screenHeight / 1.5;
+    treeHeigth = screenHeight / 1.5 + (random.nextDouble() * 10);
+    treeWidth = treeHeigth;
 
-    position = Vector2(random.nextDouble() * screenWidth + screenWidth,
-        screenHeight - treeHeigth + 4);
+    position = Vector2(
+        random.nextDouble() * screenWidth + (isInitial ? 0 : screenWidth + 64),
+        screenHeight + 4);
     size = Vector2(treeWidth, treeHeigth);
 
     // Elegir aleatoriamente
 
     final trees = ['tree1.png', 'tree2.png', 'tree3.png', 'tree4.png'];
-    final tree = trees[random.nextInt(trees.length)];
+    final tree = trees[Random().nextInt(trees.length)];
 
     sprite = await Sprite.load(tree);
+
+    add(
+      MoveEffect.by(
+        Vector2(-0.5, 0),
+        EffectController(
+          duration: 0.75,
+          reverseDuration: 0.5,
+          infinite: true,
+          curve: Curves.easeOut,
+        ),
+      ),
+    );
+
+    add(
+      RotateEffect.by(
+        0.005,
+        EffectController(
+          duration: 0.5,
+          reverseDuration: 0.7,
+          infinite: true,
+          curve: Curves.easeInOut,
+        ),
+      ),
+    );
 
     return super.onLoad();
   }
