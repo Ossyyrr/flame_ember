@@ -11,7 +11,10 @@ class PlatformBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
   PlatformBlock({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64), anchor: Anchor.bottomLeft);
+  }) : super(
+          size: Vector2.all(64),
+          anchor: Anchor.bottomLeft,
+        );
 
   @override
   void onLoad() {

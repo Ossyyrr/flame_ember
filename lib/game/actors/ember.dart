@@ -18,7 +18,10 @@ class EmberPlayer extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {
   EmberPlayer({
     required super.position,
-  }) : super(size: Vector2.all(64 * 1.5), anchor: Anchor.bottomCenter) {
+  }) : super(
+          size: Vector2.all(64 * 1.5),
+          anchor: Anchor.bottomCenter,
+        ) {
     anchor = const Anchor(0.5, 0); // CENTRO
     debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
@@ -108,12 +111,14 @@ class EmberPlayer extends SpriteAnimationComponent
 
     game.objectSpeed = 0;
     moveSpeed = 200;
+
 // Prevent ember from going backwards at screen edge.
     if (position.x <= 0 && horizontalDirection < 0) {
       velocity.x = 0;
       // game.objectSpeed = moveSpeed;
       // moveSpeed = -200;
     }
+
 // Prevent ember from going beyond half screen.
     if (position.x + 64 >= game.size.x / 2 && horizontalDirection > 0) {
       velocity.x = 0;
@@ -193,6 +198,10 @@ class EmberPlayer extends SpriteAnimationComponent
       // left
       if (intersectionPoints.first[0] <= 0) {
         position += Vector2(8, 0);
+      }
+      // right
+      if (intersectionPoints.first[0] >= game.size.x) {
+        position += Vector2(-8, 0);
       }
     }
 

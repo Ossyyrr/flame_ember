@@ -1,4 +1,5 @@
 import 'package:ember_flame/game/actors/ember.dart';
+import 'package:ember_flame/game/objects/decoration/tree.dart';
 import 'package:ember_flame/game/objects/ground_block.dart';
 import 'package:ember_flame/game/objects/platform_block.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
@@ -77,6 +78,15 @@ class EmberQuestGame extends FlameGame
       'water_enemy.png',
       'bg_w.png',
       'bg_f.png',
+      'tree1.png',
+      'tree2.png',
+      'tree3.png',
+      'tree4.png',
+      'mountain1.png',
+      'mountain2.png',
+      'cloud1.png',
+      'cloud2.png',
+      'cloud3.png',
     ]);
 
     cameraComponent = CameraComponent(world: world);
@@ -109,6 +119,10 @@ class EmberQuestGame extends FlameGame
     starsCollected = 0;
     health = 3;
     initializeGame(false);
+  }
+
+  void loadGameBackgrounDecorations() {
+    add(Tree());
   }
 
   void loadGameSegments(int segmentIndex, double xPositionOffset) {
@@ -152,5 +166,9 @@ class EmberQuestGame extends FlameGame
           break;
       }
     }
+
+    loadGameBackgrounDecorations();
   }
+
+  double elapsedTime = 0.0;
 }

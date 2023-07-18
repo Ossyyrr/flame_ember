@@ -17,7 +17,10 @@ class WaterEnemy extends SpriteAnimationComponent
   WaterEnemy({
     required this.gridPosition,
     required this.xOffset,
-  }) : super(size: Vector2.all(64 * 1.5), anchor: Anchor.bottomCenter) {
+  }) : super(
+          size: Vector2.all(64 * 1.5),
+          anchor: Anchor.bottomCenter,
+        ) {
     anchor = const Anchor(0.5, 0.10); // CENTRO
     debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
