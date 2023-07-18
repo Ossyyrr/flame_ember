@@ -1,4 +1,5 @@
 import 'package:ember_flame/game/actors/ember.dart';
+import 'package:ember_flame/game/objects/decoration/cloud.dart';
 import 'package:ember_flame/game/objects/decoration/tree.dart';
 import 'package:ember_flame/game/objects/ground_block.dart';
 import 'package:ember_flame/game/objects/platform_block.dart';
@@ -107,6 +108,8 @@ class EmberQuestGame extends FlameGame
 
     add(Tree(isInitial: true));
     add(Tree(isInitial: true));
+    add(Cloud(isInitial: true));
+    add(Cloud(isInitial: true));
 
     _ember = EmberPlayer(
       position: Vector2(128, canvasSize.y - 128),
@@ -126,6 +129,7 @@ class EmberQuestGame extends FlameGame
 
   void loadGameBackgrounDecorations() {
     add(Tree());
+    add(Cloud());
   }
 
   void loadGameSegments(int segmentIndex, double xPositionOffset) {
