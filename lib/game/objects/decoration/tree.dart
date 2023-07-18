@@ -52,23 +52,12 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
     sprite = await Sprite.load(tree);
 
     add(
-      MoveEffect.by(
-        Vector2(-0.5, 0),
-        EffectController(
-          duration: 0.75,
-          reverseDuration: 0.5,
-          infinite: true,
-          curve: Curves.easeOut,
-        ),
-      ),
-    );
-
-    add(
       RotateEffect.by(
-        0.005,
+        0.0055,
         EffectController(
-          duration: 0.5,
-          reverseDuration: 0.7,
+          duration: 1.5,
+          reverseDuration: 0.5,
+          startDelay: random.nextDouble() * 3,
           infinite: true,
           curve: Curves.easeInOut,
         ),
