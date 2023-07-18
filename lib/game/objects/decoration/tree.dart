@@ -10,7 +10,7 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
     priority = -1; // z-index
     debugMode = Globals.showHitBox; // Permite ver los hitBox
   }
-  static const double treeWidth = 300, treeHeigth = 300;
+  static late double treeWidth, treeHeigth;
 
   Random random = Random();
 
@@ -33,11 +33,19 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
     screenWidth = game.size.x;
     screenHeight = game.size.y;
 
-    position = Vector2(
-        random.nextDouble() * screenWidth * 2, screenHeight - treeHeigth);
+    treeHeigth = screenHeight / 1.5;
+    treeWidth = screenHeight / 1.5;
+
+    position = Vector2(random.nextDouble() * screenWidth + screenWidth,
+        screenHeight - treeHeigth + 4);
     size = Vector2(treeWidth, treeHeigth);
 
-    sprite = await Sprite.load('tree1.png');
+    // Elegir aleatoriamente
+
+    final trees = ['tree1.png', 'tree2.png', 'tree3.png', 'tree4.png'];
+    final tree = trees[random.nextInt(trees.length)];
+
+    sprite = await Sprite.load(tree);
 
     return super.onLoad();
   }
