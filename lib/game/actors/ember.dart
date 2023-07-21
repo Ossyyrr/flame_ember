@@ -2,7 +2,6 @@ import 'package:ember_flame/game/actors/water_enemy.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:ember_flame/game/objects/star.dart';
 import 'package:ember_flame/game/overlays/widget/character_selector.dart';
-import 'package:ember_flame/utils/crate_animation_by_limit.dart';
 import 'package:ember_flame/utils/globals.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -63,12 +62,16 @@ class EmberPlayer extends SpriteAnimationComponent
                 : 'water_enemy.png'),
         srcSize: Vector2(787, 770));
 
-    walkAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.3);
-    deadAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.3, loop: false);
-    angryAnimation = spriteSheet.createAnimationByLimit(
-        xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.3);
+    void loadCharacterAnimations() async {
+      angryAnimation =
+          spriteSheet.createAnimation(row: 0, stepTime: 0.3, to: 3);
+      deadAnimation =
+          spriteSheet.createAnimation(row: 0, stepTime: 0.3, from: 4, to: 9);
+      walkAnimation =
+          spriteSheet.createAnimation(row: 0, stepTime: 0.3, from: 10, to: 13);
+    }
+
+    loadCharacterAnimations();
 
     animation = walkAnimation;
 
