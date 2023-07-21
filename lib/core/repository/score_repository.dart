@@ -21,7 +21,9 @@ class ScoreRepository {
   }
 
   static void updateUserScore(String name, int score) async {
-    if (gameScores.isEmpty || score > gameScores.last.score) {
+    if (gameScores.length < 25 ||
+        gameScores.isEmpty ||
+        score > gameScores.last.score) {
       await Firestore.addScore(name, score);
     }
     final scores = await Firestore.getScores();
