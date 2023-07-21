@@ -11,7 +11,7 @@ class Cloud extends SpriteComponent with HasGameRef<EmberQuestGame> {
   Cloud({this.isInitial = false}) : super() {
     anchor = const Anchor(0.5, 0.5);
     priority = -1; // z-index
-    debugMode = Globals.showHitBox; // Permite ver los hitBox
+    debugMode = Globals.showHitBox;
   }
 
   static late double cloudWidth, cloudHeigth;

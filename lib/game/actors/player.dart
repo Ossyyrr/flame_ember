@@ -22,7 +22,7 @@ class Player extends SpriteAnimationComponent
           anchor: Anchor.bottomCenter,
         ) {
     anchor = const Anchor(0.5, 0); // CENTRO
-    debugMode = Globals.showHitBox; // Permite ver los hitBox
+    debugMode = Globals.showHitBox;
   }
   bool hitByEnemy = false;
   int horizontalDirection = 0;

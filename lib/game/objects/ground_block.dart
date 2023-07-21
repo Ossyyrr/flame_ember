@@ -22,7 +22,7 @@ class GroundBlock extends SpriteComponent with HasGameRef<EmberQuestGame> {
           size: Vector2.all(64),
           anchor: Anchor.bottomLeft,
         ) {
-    // debugMode = Globals.showHitBox; // Permite ver los hitBox
+    // debugMode = Globals.showHitBox;
   }
 
   @override

@@ -13,7 +13,7 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
     anchor = const Anchor(0.5, 1);
 
     priority = -1; // z-index
-    debugMode = Globals.showHitBox; // Permite ver los hitBox
+    debugMode = Globals.showHitBox;
   }
   static late double treeWidth, treeHeigth;
   final Random random = Random();

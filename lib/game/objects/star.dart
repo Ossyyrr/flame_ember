@@ -19,7 +19,7 @@ class Star extends SpriteComponent with HasGameRef<EmberQuestGame> {
           anchor: Anchor.center,
         ) {
     anchor = const Anchor(0.5, 0.50); // CENTRO
-    debugMode = Globals.showHitBox; // Permite ver los hitBox
+    debugMode = Globals.showHitBox;
   }
 
   @override

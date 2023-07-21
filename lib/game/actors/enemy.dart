@@ -19,8 +19,8 @@ class Enemy extends SpriteAnimationComponent with HasGameRef<EmberQuestGame> {
           size: Vector2.all(64 * 1.5),
           anchor: Anchor.bottomCenter,
         ) {
-    anchor = const Anchor(0.5, 0.10); // CENTRO
-    debugMode = Globals.showHitBox; // Permite ver los hitBox
+    anchor = const Anchor(0.5, 0.10); // Center
+    debugMode = Globals.showHitBox;
   }
 
   late SpriteAnimation deadAnimation, walkAnimation, angryAnimation;
