@@ -1,6 +1,6 @@
 import 'package:flame/components.dart';
 
-import '../actors/water_enemy.dart';
+import '../actors/enemy.dart';
 import '../objects/ground_block.dart';
 import '../objects/platform_block.dart';
 import '../objects/platform_block_grass.dart';
@@ -40,7 +40,7 @@ final segment0 = [
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 3), PlatformBlockGrass),
   Block(Vector2(9, 0), GroundBlock),
-  Block(Vector2(5, 1), WaterEnemy),
+  Block(Vector2(5, 1), Enemy),
 ];
 
 final segment1 = [
@@ -60,7 +60,7 @@ final segment1 = [
   Block(Vector2(8, 1), PlatformBlockGrass),
   Block(Vector2(8, 5), PlatformBlockGrass),
   Block(Vector2(9, 0), GroundBlock),
-  Block(Vector2(8, 6), WaterEnemy),
+  Block(Vector2(8, 6), Enemy),
 ];
 
 final segment2 = [
@@ -81,7 +81,7 @@ final segment2 = [
   Block(Vector2(7, 0), GroundBlock),
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(9, 0), GroundBlock),
-  Block(Vector2(5, 4), WaterEnemy),
+  Block(Vector2(5, 4), Enemy),
 ];
 
 final segment3 = [
@@ -99,7 +99,7 @@ final segment3 = [
   Block(Vector2(8, 0), GroundBlock),
   Block(Vector2(8, 8), Star),
   Block(Vector2(9, 0), GroundBlock),
-  Block(Vector2(1, 1), WaterEnemy),
+  Block(Vector2(1, 1), Enemy),
 ];
 
 final segment4 = [
@@ -120,6 +120,6 @@ final segment4 = [
   Block(Vector2(8, 3), PlatformBlockGrass),
   Block(Vector2(9, 0), GroundBlock),
   Block(Vector2(9, 3), PlatformBlockGrass),
-  Block(Vector2(3, 1), WaterEnemy),
-  Block(Vector2(9, 1), WaterEnemy),
+  Block(Vector2(3, 1), Enemy),
+  Block(Vector2(9, 1), Enemy),
 ];

@@ -1,4 +1,4 @@
-import 'package:ember_flame/game/actors/water_enemy.dart';
+import 'package:ember_flame/game/actors/enemy.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:ember_flame/game/objects/star.dart';
 import 'package:ember_flame/game/overlays/widget/character_selector.dart';
@@ -13,9 +13,9 @@ import '../objects/ground_block.dart';
 import '../objects/platform_block.dart';
 import '../services/ember_quest_game.dart';
 
-class EmberPlayer extends SpriteAnimationComponent
+class Player extends SpriteAnimationComponent
     with KeyboardHandler, CollisionCallbacks, HasGameRef<EmberQuestGame> {
-  EmberPlayer({
+  Player({
     required super.position,
   }) : super(
           size: Vector2.all(64 * 1.5),
@@ -193,7 +193,7 @@ class EmberPlayer extends SpriteAnimationComponent
       game.starsCollected++;
     }
 
-    if (other is WaterEnemy) {
+    if (other is Enemy) {
       hit();
     }
 

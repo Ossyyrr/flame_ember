@@ -1,4 +1,4 @@
-import 'package:ember_flame/game/actors/ember.dart';
+import 'package:ember_flame/game/actors/player.dart';
 import 'package:ember_flame/game/objects/decoration/cloud.dart';
 import 'package:ember_flame/game/objects/decoration/tree.dart';
 import 'package:ember_flame/game/objects/ground_block.dart';
@@ -9,7 +9,7 @@ import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 
-import '../actors/water_enemy.dart';
+import '../actors/enemy.dart';
 import '../managers/segment_manager.dart';
 import '../objects/star.dart';
 import '../overlays/hud.dart';
@@ -23,7 +23,7 @@ class EmberQuestGame extends FlameGame
         LongPressDetector {
   EmberQuestGame();
 
-  late EmberPlayer _ember;
+  late Player _ember;
   double objectSpeed = 0.0; //Velocidad de los objetos del juego
   late double lastBlockXPosition = 0.0;
   late UniqueKey lastBlockKey;
@@ -111,7 +111,7 @@ class EmberQuestGame extends FlameGame
     add(Cloud(isInitial: true));
     add(Cloud(isInitial: true));
 
-    _ember = EmberPlayer(
+    _ember = Player(
       position: Vector2(128, canvasSize.y - 128),
     );
     add(_ember);
@@ -163,9 +163,9 @@ class EmberQuestGame extends FlameGame
             ),
           );
           break;
-        case WaterEnemy:
+        case Enemy:
           add(
-            WaterEnemy(
+            Enemy(
               gridPosition: block.gridPosition,
               xOffset: xPositionOffset,
             ),

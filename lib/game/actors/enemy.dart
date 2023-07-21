@@ -6,14 +6,13 @@ import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
 import 'package:flame/sprite.dart';
 
-class WaterEnemy extends SpriteAnimationComponent
-    with HasGameRef<EmberQuestGame> {
+class Enemy extends SpriteAnimationComponent with HasGameRef<EmberQuestGame> {
   final Vector2 gridPosition;
   double xOffset;
 
   final Vector2 velocity = Vector2.zero();
 
-  WaterEnemy({
+  Enemy({
     required this.gridPosition,
     required this.xOffset,
   }) : super(
@@ -45,12 +44,6 @@ class WaterEnemy extends SpriteAnimationComponent
     }
 
     loadCharacterAnimations();
-    // walkAnimation = spriteSheet.createAnimationByLimit(
-    //     xInit: 0, yInit: 10, step: 3, sizeX: 20, stepTime: 0.4);
-    // deadAnimation = spriteSheet.createAnimationByLimit(
-    //     xInit: 0, yInit: 4, step: 6, sizeX: 20, stepTime: 0.4, loop: false);
-    // angryAnimation = spriteSheet.createAnimationByLimit(
-    //     xInit: 0, yInit: 0, step: 4, sizeX: 20, stepTime: 0.4);
 
     animation = angryAnimation;
 
