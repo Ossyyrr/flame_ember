@@ -98,6 +98,7 @@ class GameOver extends StatelessWidget {
                                     ? 600
                                     : MediaQuery.of(context).size.height / 2.5,
                                 child: ListWheelScrollView(
+                                    diameterRatio: 1.7,
                                     controller: FixedExtentScrollController(
                                         initialItem: scores.indexWhere(
                                             (element) =>
@@ -120,7 +121,7 @@ class GameOver extends StatelessWidget {
                                                 fontSize: 12),
                                           ),
                                           Text(
-                                            '${scores[index].name}:       ${scores[index].score}',
+                                            '${scores[index].name}:      ${scores[index].score}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
                                               color: Colors.white,
