@@ -29,7 +29,7 @@ class Firestore {
     final data = await _instance
         .collection('scores')
         .orderBy('score', descending: true)
-        .limit(20)
+        .limit(50)
         .get();
 
     for (final doc in data.docs) {

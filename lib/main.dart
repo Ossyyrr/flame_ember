@@ -1,3 +1,4 @@
+import 'package:ember_flame/core/repository/score_repository.dart';
 import 'package:ember_flame/game/overlays/game_over.dart';
 import 'package:ember_flame/game/overlays/main_menu.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -15,7 +16,7 @@ void main() async {
   );
   FocusNode focusNode = FocusNode();
   String playerName = 'New Player';
-
+  ScoreRepository.getScores();
 // TODO
 // Hitbox borde de pantalla
 // Iniciar juego al dar a play (no segundo plano)
