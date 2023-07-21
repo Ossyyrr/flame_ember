@@ -23,7 +23,7 @@ class Enemy extends SpriteAnimationComponent with HasGameRef<EmberQuestGame> {
     debugMode = Globals.showHitBox;
   }
 
-  late SpriteAnimation deadAnimation, walkAnimation, angryAnimation;
+  late SpriteAnimation angryAnimation;
 
   @override
   void onLoad() {
@@ -37,10 +37,6 @@ class Enemy extends SpriteAnimationComponent with HasGameRef<EmberQuestGame> {
     void loadCharacterAnimations() async {
       angryAnimation =
           spriteSheet.createAnimation(row: 0, stepTime: 0.2, to: 3);
-      deadAnimation =
-          spriteSheet.createAnimation(row: 0, stepTime: 0.2, from: 4, to: 9);
-      walkAnimation =
-          spriteSheet.createAnimation(row: 0, stepTime: 0.2, from: 10, to: 13);
     }
 
     loadCharacterAnimations();

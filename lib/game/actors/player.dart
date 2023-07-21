@@ -37,10 +37,8 @@ class Player extends SpriteAnimationComponent
 
   bool hasJumped = false;
 
-  late SpriteAnimation deadAnimation,
-      walkAnimation,
-      angryAnimation,
-      lastAnimation;
+  late SpriteAnimation deadAnimation, walkAnimation;
+
   void jump() {
     hasJumped = true;
   }
@@ -63,10 +61,8 @@ class Player extends SpriteAnimationComponent
         srcSize: Vector2(787, 770));
 
     void loadCharacterAnimations() async {
-      angryAnimation =
-          spriteSheet.createAnimation(row: 0, stepTime: 0.3, to: 3);
-      deadAnimation =
-          spriteSheet.createAnimation(row: 0, stepTime: 0.3, from: 4, to: 9);
+      deadAnimation = spriteSheet.createAnimation(
+          row: 0, stepTime: 0.3, from: 4, to: 9, loop: false);
       walkAnimation =
           spriteSheet.createAnimation(row: 0, stepTime: 0.3, from: 10, to: 13);
     }
