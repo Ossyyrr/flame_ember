@@ -14,12 +14,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
   FocusNode focusNode = FocusNode();
   String playerName = 'New Player';
   ScoreRepository.getScores();
-// TODO
-// Hitbox borde de pantalla
-// Iniciar juego al dar a play (no segundo plano)
 
   runApp(
     MaterialApp(
