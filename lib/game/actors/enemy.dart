@@ -1,3 +1,4 @@
+import 'package:ember_flame/core/services/image_sercice.dart';
 import 'package:ember_flame/game/overlays/widget/character_selector.dart';
 import 'package:ember_flame/game/services/ember_quest_game.dart';
 import 'package:ember_flame/utils/globals.dart';
@@ -26,13 +27,15 @@ class Enemy extends SpriteAnimationComponent with HasGameRef<EmberQuestGame> {
   late SpriteAnimation angryAnimation;
 
   @override
-  void onLoad() {
+  void onLoad() async {
+    (double, double) spriteSize =
+        await ImageService.getImageSize('assets/images/ember.png');
     final spriteSheet = SpriteSheet(
         image: game.images.fromCache(
             Globals.selectedCharacter == Character.ember
                 ? 'water_enemy.png'
                 : 'ember.png'),
-        srcSize: Vector2(787, 770));
+        srcSize: Vector2(spriteSize.$1 / 14, spriteSize.$2));
 
     void loadCharacterAnimations() async {
       angryAnimation =

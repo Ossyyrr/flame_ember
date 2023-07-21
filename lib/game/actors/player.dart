@@ -1,3 +1,4 @@
+import 'package:ember_flame/core/services/image_sercice.dart';
 import 'package:ember_flame/game/actors/enemy.dart';
 import 'package:ember_flame/game/objects/platform_block_grass.dart';
 import 'package:ember_flame/game/objects/star.dart';
@@ -52,13 +53,16 @@ class Player extends SpriteAnimationComponent
   }
 
   @override
-  void onLoad() {
+  void onLoad() async {
+    (double, double) spriteSize =
+        await ImageService.getImageSize('assets/images/ember.png');
+
     final spriteSheet = SpriteSheet(
         image: game.images.fromCache(
             Globals.selectedCharacter == Character.ember
                 ? 'ember.png'
                 : 'water_enemy.png'),
-        srcSize: Vector2(787, 770));
+        srcSize: Vector2(spriteSize.$1 / 14, spriteSize.$2));
 
     void loadCharacterAnimations() async {
       deadAnimation = spriteSheet.createAnimation(
