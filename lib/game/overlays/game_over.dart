@@ -23,6 +23,29 @@ class GameOver extends StatelessWidget {
             child: Image(
                 image: AssetImage('assets/images/bg_f.png'), fit: BoxFit.cover),
           ),
+          Positioned(
+            top: 60,
+            left: 36,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Text(playerName,
+                    style: const TextStyle(color: Colors.white, fontSize: 24)),
+                Row(
+                  children: [
+                    Image.asset(
+                      'assets/images/star.png',
+                      scale: 24,
+                    ),
+                    Text(
+                      game.starsCollected.toString(),
+                      style: const TextStyle(color: Colors.white, fontSize: 24),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.all(32),
             child: Center(
@@ -41,7 +64,7 @@ class GameOver extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const SizedBox(height: 16),
+                        const SizedBox(height: 8),
                         const Text(
                           'Game Over',
                           style: TextStyle(
@@ -50,9 +73,9 @@ class GameOver extends StatelessWidget {
                             fontSize: 24,
                           ),
                         ),
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 12),
                         const Text(
-                          'Scores:',
+                          'Ranking',
                           style: TextStyle(
                             color: Colors.white,
                             fontSize: 22,
@@ -73,22 +96,40 @@ class GameOver extends StatelessWidget {
                                 height: MediaQuery.of(context).size.height >
                                         10000
                                     ? 600
-                                    : MediaQuery.of(context).size.height / 2,
+                                    : MediaQuery.of(context).size.height / 2.5,
                                 child: ListWheelScrollView(
-                                  physics: const FixedExtentScrollPhysics(),
-                                  itemExtent: 30,
-                                  children: [
-                                    for (final score in scores)
-                                      Text(
-                                        '${score.name}: ${score.score}',
-                                        textAlign: TextAlign.center,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 18,
-                                        ),
+                                    controller: FixedExtentScrollController(
+                                        initialItem: scores.indexWhere(
+                                            (element) =>
+                                                element.name == playerName)),
+                                    physics: const FixedExtentScrollPhysics(),
+                                    itemExtent: 32,
+                                    children: List.generate(
+                                      scores.length,
+                                      (index) => Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            '$index.                 ',
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 12),
+                                          ),
+                                          Text(
+                                            '${scores[index].name}:       ${scores[index].score}',
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 18,
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                  ],
-                                ),
+                                    )),
                               );
                             }),
                       ],
@@ -106,7 +147,7 @@ class GameOver extends StatelessWidget {
                             color: Colors.white,
                             size: 50,
                           )),
-                    )
+                    ),
                   ],
                 ),
               ),

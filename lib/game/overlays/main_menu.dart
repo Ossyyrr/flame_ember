@@ -64,7 +64,7 @@ class MainMenu extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 24),
+                  const SizedBox(height: 32),
                   const Text(
                     'Ember Flame',
                     textAlign: TextAlign.center,
@@ -73,7 +73,7 @@ class MainMenu extends StatelessWidget {
                       fontSize: 24,
                     ),
                   ),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 24),
                   Padding(
                     padding: const EdgeInsets.all(16),
                     child: TextFormField(
@@ -132,15 +132,17 @@ class MainMenu extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Use WAD or Arrow Keys for movement.\nSpace bar to jump.\nCollect as many stars as you can\nand avoid enemies!',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
+                  if (MediaQuery.of(context).size.height > 400) ...[
+                    const Text(
+                      'Use WAD or Arrow Keys for movement.\nSpace bar to jump.\nCollect as many stars as you can\nand avoid enemies!',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 14,
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 12),
+                    const SizedBox(height: 12),
+                  ]
                 ],
               ),
             ),
