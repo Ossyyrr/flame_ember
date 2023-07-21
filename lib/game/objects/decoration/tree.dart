@@ -25,6 +25,9 @@ class Tree extends SpriteComponent with HasGameRef<EmberQuestGame> {
     if (position.x < -treeWidth) {
       removeFromParent(); // Eliminar cuando sale de la pantalla
     }
+    if (game.gameOver) {
+      removeFromParent();
+    }
     super.update(dt);
   }
 

@@ -24,6 +24,9 @@ class Cloud extends SpriteComponent with HasGameRef<EmberQuestGame> {
     if (position.x < -cloudWidth) {
       removeFromParent(); // Eliminar cuando sale de la pantalla
     }
+    if (game.gameOver) {
+      removeFromParent();
+    }
     super.update(dt);
   }
 
