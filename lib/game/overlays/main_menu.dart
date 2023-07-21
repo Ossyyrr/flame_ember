@@ -27,8 +27,8 @@ class MainMenu extends StatelessWidget {
                 image: AssetImage('assets/images/bg_w.png'), fit: BoxFit.cover),
           ),
           Positioned(
-              bottom: 12,
-              right: 12,
+              bottom: 24,
+              right: 24,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -36,7 +36,7 @@ class MainMenu extends StatelessWidget {
                     'Game by Patricia Manzanero',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 15,
                       fontFamily: GoogleFonts.indieFlower().fontFamily,
                     ),
                   ),
@@ -44,7 +44,7 @@ class MainMenu extends StatelessWidget {
                     'Assets by Borja Bandera',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 15,
                       fontFamily: GoogleFonts.indieFlower().fontFamily,
                     ),
                   ),
